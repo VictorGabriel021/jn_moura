@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Telefônica</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/main.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="home-title">
+                @Html.ActionLink("Agenda Telefônica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="content">
+                <ul class="navbar-list-items">
+                    <li class="navbar-items">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="navbar-items">@Html.ActionLink("Agenda", "Index", "People")</li>
+                    <li class="navbar-items">@Html.ActionLink("Cadastrar", "Create", "People")</li>
+                </ul>
+            </div>
+        </div>
+
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

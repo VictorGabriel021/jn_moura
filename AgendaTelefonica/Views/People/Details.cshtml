@@ -1,0 +1,43 @@
+﻿@model AgendaTelefonica.Models.People
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style type="text/css">
+    .container-title {
+        text-align: center;
+        margin: 20px 0 10px 0;
+    }
+
+    .container-main-create {
+        margin: 20px;
+    }
+
+    .content-main-create {
+        background-color: white;
+        border-radius: 20px;
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 800px;
+    }
+</style>
+
+<h2 class="container-title">Detalhes</h2>
+
+<div class="container-main-create">
+    <div class="content-main-create">
+        <h1>
+            @Html.DisplayFor(model => model.Name)
+        </h1>
+        <br />
+        @Html.Label("Telefone: ", htmlAttributes: new { @class = "control-label" })
+        @Html.DisplayFor(model => model.Phone)
+        <br />
+        @Html.Label("Endereço: ", htmlAttributes: new { @class = "control-label" })
+        @Html.DisplayFor(model => model.Address)
+        <div>
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    </div>
+</div>

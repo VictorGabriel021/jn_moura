@@ -1,0 +1,87 @@
+﻿@model AgendaTelefonica.Models.People
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<style type="text/css">
+    .container-title {
+        text-align: center;
+        margin: 20px 0 10px 0;
+    }
+
+    .container-main-create {
+        margin: 20px;
+    }
+
+    .content-main-create {
+        background-color: white;
+        border-radius: 20px;
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 800px;
+    }
+
+    .content-width {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .content-main {
+        flex: 0 1 360px;
+    }
+
+    .link-back {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex: 0 1 100%;
+    }
+
+        .link-back a {
+            margin-right: 10px;
+        }
+</style>
+
+<h2 class="container-title">Edite o contato</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-main-create">
+        <div class="content-main-create">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="content-width">
+                <div class="content-main">
+                    @Html.Label("Nome", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                    @Html.Label("Telefone", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="content-main">
+                    @Html.Label("Endereço", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="link-back">
+                    @Html.ActionLink("Voltar", "Index")
+                    <input type="submit" value="Editar" class="btn btn-primary ola" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

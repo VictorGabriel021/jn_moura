@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AgendaTelefonica.Models.People>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    .title-list {
+        text-align: center;
+    }
+
+    .create {
+        margin: 0 20px;
+    }
+
+    .create a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .create-button {
+        text-align: end;
+    }
+
+    .container-list {
+        background-color: white;
+        border-radius: 20px;
+        margin: 40px 20px 0px 20px;
+        padding: 40px 0;
+    }
+
+    .card-list {
+        background-color: white;
+        border-radius: 20px;
+        margin: 40px 20px 20px 20px;
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .card-item-client {
+        margin: 0 20px;
+    }
+
+    .card-item-click {
+        margin: 10px 20px;
+    }
+    .item-click {
+        margin-top: 10px;
+    }
+</style>
+
+<h2 class="title-list">Lista telefônica</h2>
+
+<div class="create-button">
+    <button class=" btn btn-primary create">
+        @Html.ActionLink("Cadastrar", "Create")
+    </button>
+</div>
+
+@foreach (var item2 in Model)
+{
+    <div class="card-list">
+        <div class="card-item-client">
+            <h1>
+                @Html.DisplayFor(modelItem => item2.Name)
+            </h1>
+            <p>
+                Telefone: @Html.DisplayFor(modelItem => item2.Phone)
+            </p>
+            <p>
+                Endereço: @Html.DisplayFor(modelItem => item2.Address)
+            </p>
+        </div>
+        <div class="card-item-click">
+            @Html.ActionLink("Editar", "Edit", new { id = item2.ID }, htmlAttributes: new { @class = "btn btn-primary item-click", @role = "button" })
+            @Html.ActionLink("Detalhes", "Details", new { id = item2.ID }, htmlAttributes: new { @class = "btn btn-warning item-click", @role = "button" })
+            @Html.ActionLink("Excluir", "Delete", new { id = item2.ID }, htmlAttributes: new { @class = "btn btn-danger item-click", @role = "button" })
+        </div>
+    </div>
+}
