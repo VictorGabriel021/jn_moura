@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AgendaTelefonica.Models.People>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<AgendaTelefonica.Models.People>
 
 @{
     ViewBag.Title = "Index";
@@ -7,6 +8,12 @@
 <style type="text/css">
     .title-list {
         text-align: center;
+        margin: 0 10px 20px 10px;
+    }
+
+    #SearchString {
+        width: 50%;
+        max-width: 400px;
     }
 
     .create {
@@ -47,12 +54,21 @@
     .card-item-click {
         margin: 10px 20px;
     }
+
     .item-click {
         margin-top: 10px;
     }
 </style>
 
-<h2 class="title-list">Lista telefônica</h2>
+<div class="title-list">
+    <h2>Lista telefônica</h2>
+
+    @using (Html.BeginForm("Index", "People", FormMethod.Get))
+    {
+        @Html.TextBox("SearchString")
+        <input type="submit" value="Busca" placeholder="Digite um nome" />
+    }
+</div>
 
 <div class="create-button">
     <button class=" btn btn-primary create">
@@ -81,3 +97,7 @@
         </div>
     </div>
 }
+
+    <div class="title-list">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+    </div>

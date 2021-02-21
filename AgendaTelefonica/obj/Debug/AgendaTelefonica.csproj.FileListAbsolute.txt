@@ -190,3 +190,7 @@ C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefon
 C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.dll
 C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.pdb
 C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.csprojAssemblyReference.cache
+C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\bin\PagedList.dll
+C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\bin\PagedList.Mvc.dll
+C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\bin\PagedList.xml
+C:\workspaces\jn-moura\AgendaTelefonica\AgendaTelefonica\bin\PagedList.Mvc.xml

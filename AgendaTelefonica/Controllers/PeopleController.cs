@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using AgendaTelefonica.DAL;
 using AgendaTelefonica.Models;
+using PagedList;
 
 namespace AgendaTelefonica.Controllers
 {
@@ -16,9 +17,30 @@ namespace AgendaTelefonica.Controllers
         private MainContext db = new MainContext();
 
         // GET: People
-        public ActionResult Index()
+        public ActionResult Index(string currentFilter, string searchString, int? page)
         {
-            return View(db.Peoples.ToList());
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var people = from s in db.Peoples select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                people = people.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+
+            return View(people.OrderBy(s => s.Name).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: People/Details/5
