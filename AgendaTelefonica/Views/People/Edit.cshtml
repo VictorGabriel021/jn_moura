@@ -58,17 +58,18 @@
 
             <div class="content-width">
                 <div class="content-main">
-                    @Html.Label("Nome", htmlAttributes: new { @class = "control-label" })
+                    @Html.Label("Nome*", htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-
-                    @Html.Label("Telefone", htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px" } })
+                    <br />
+                    @Html.Label("Telefone*", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px", @id = "telefone", placeholder = "(00) 00000-0000" } })
                     @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    <br />
                 </div>
 
                 <div class="content-main">
-                    @Html.Label("Endereço", htmlAttributes: new { @class = "control-label" })
+                    @Html.Label("Endereço*", htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @style = "max-width:340px" } })
                     @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
 
@@ -84,4 +85,11 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+
+    <script>
+        $(document).ready(function () {
+            $("#telefone").inputmask("mask", { "mask": "(99) 99999-9999" });
+        });
+    </script>
 }

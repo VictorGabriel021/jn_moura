@@ -12,7 +12,7 @@
     <div class="container">
         <div class="menu">
             <div class="home-title">
-                @Html.ActionLink("Agenda Telefônica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Agenda Telefônica", "Index", "Home")
             </div>
             <div class="content">
                 <ul class="navbar-list-items">
@@ -29,6 +29,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/inputmask")
     @RenderSection("scripts", required: false)
 </body>
 </html>

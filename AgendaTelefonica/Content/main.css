@@ -10,7 +10,7 @@
 }
 
 .menu {
-    background-color: #da5c5c;
+    background-color: #0080FF;
     height: 90px;
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +25,8 @@
 }
 
 .home-title a:hover {
-    color:#407BFF;
+    color: #f0ad4e;
+    text-decoration: none;
 }
 
 .navbar-list-items {
@@ -51,7 +52,7 @@
 }
 
 .navbar-items a:hover {
-    color:#407BFF;
+    color: #f0ad4e;
 }
 
 .footer {
